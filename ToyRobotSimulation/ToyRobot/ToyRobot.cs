@@ -77,52 +77,28 @@ namespace ToyRobotSimulation.ToyRobot
         }
 
         /// <summary>
-        /// Tourne le robot sur l'orientation suivante à gauche
+        /// Switch expression permettant de gèrer l'orientation
         /// </summary>
-        public void Left()
+        /// <param name="orientation">Orientation</param>
+        /// <param name="command">Commande, LEFT ou RIGHT</param>
+        /// <returns></returns>
+        public static Orientation ToOrientation(Orientation orientation, string command) => orientation switch
         {
-            if (this._IsPlaced)
-            {
-                switch (this.Orientation)
-                {
-                    case Orientation.NORTH:
-                        this.Orientation = Orientation.WEST;
-                        break;
-                    case Orientation.SOUTH:
-                        this.Orientation = Orientation.EAST;
-                        break;
-                    case Orientation.EAST:
-                        this.Orientation = Orientation.NORTH;
-                        break;
-                    case Orientation.WEST:
-                        this.Orientation = Orientation.SOUTH;
-                        break;
-                }
-            }
-        }
+            Orientation.NORTH => orientation = command == "LEFT" ? Orientation.WEST : Orientation.EAST,
+            Orientation.SOUTH => orientation = command == "LEFT" ? Orientation.EAST : Orientation.WEST,
+            Orientation.EAST => orientation = command == "LEFT" ? Orientation.NORTH : Orientation.SOUTH,
+            Orientation.WEST => orientation = command == "LEFT" ? Orientation.SOUTH : Orientation.EAST,
+            _ => throw new NotImplementedException(),
+        };
 
         /// <summary>
-        /// Tourne le robot sur l'orientation suivante à droite
+        /// Tourne le robot sur l'orientation en fonction de la commande
         /// </summary>
-        public void Right()
+        public void Turn(string command)
         {
             if (this._IsPlaced)
             {
-                switch (this.Orientation)
-                {
-                    case Orientation.NORTH:
-                        this.Orientation = Orientation.EAST;
-                        break;
-                    case Orientation.SOUTH:
-                        this.Orientation = Orientation.WEST;
-                        break;
-                    case Orientation.EAST:
-                        this.Orientation = Orientation.SOUTH;
-                        break;
-                    case Orientation.WEST:
-                        this.Orientation = Orientation.NORTH;
-                        break;
-                }
+                this.Orientation = ToOrientation(this.Orientation, command);
             }
         }
 

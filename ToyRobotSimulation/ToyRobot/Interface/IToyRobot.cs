@@ -8,8 +8,7 @@ namespace ToyRobotSimulation.ToyRobot.Interface
         bool IsPlaced { get; }
         public void Place(Coordinates coordinates, Orientation orientation, ITabletop tabletop);
         void Move(ITabletop tabletop);
-        public void Left();
-        public void Right();
+        public void Turn(string command);
         public void Report();
     }
 }

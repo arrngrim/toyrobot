@@ -78,10 +78,10 @@ namespace ToyRobotSimulation
                                 toyRobot.Move(tabletop);
                                 break;
                             case "LEFT":
-                                toyRobot.Left();
+                                toyRobot.Turn(command[0]);
                                 break;
                             case "RIGHT":
-                                toyRobot.Right();
+                                toyRobot.Turn(command[0]);
                                 break;
                             case "REPORT":
                                 toyRobot.Report();
