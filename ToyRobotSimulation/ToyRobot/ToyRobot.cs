@@ -83,14 +83,21 @@ namespace ToyRobotSimulation.ToyRobot
         {
             if (this._IsPlaced)
             {
-                if (this.Orientation == Orientation.NORTH)
-                    this.Orientation = Orientation.WEST;
-                if (this.Orientation == Orientation.SOUTH)
-                    this.Orientation = Orientation.EAST;
-                if (this.Orientation == Orientation.EAST)
-                    this.Orientation = Orientation.NORTH;
-                if (this.Orientation == Orientation.WEST)
-                    this.Orientation = Orientation.SOUTH;
+                switch (this.Orientation)
+                {
+                    case Orientation.NORTH:
+                        this.Orientation = Orientation.WEST;
+                        break;
+                    case Orientation.SOUTH:
+                        this.Orientation = Orientation.EAST;
+                        break;
+                    case Orientation.EAST:
+                        this.Orientation = Orientation.NORTH;
+                        break;
+                    case Orientation.WEST:
+                        this.Orientation = Orientation.SOUTH;
+                        break;
+                }
             }
         }
 
@@ -101,14 +108,21 @@ namespace ToyRobotSimulation.ToyRobot
         {
             if (this._IsPlaced)
             {
-                if (this.Orientation == Orientation.NORTH)
-                    this.Orientation = Orientation.EAST;
-                if (this.Orientation == Orientation.SOUTH)
-                    this.Orientation = Orientation.WEST;
-                if (this.Orientation == Orientation.EAST)
-                    this.Orientation = Orientation.SOUTH;
-                if (this.Orientation == Orientation.WEST)
-                    this.Orientation = Orientation.NORTH;
+                switch (this.Orientation)
+                {
+                    case Orientation.NORTH:
+                        this.Orientation = Orientation.EAST;
+                        break;
+                    case Orientation.SOUTH:
+                        this.Orientation = Orientation.WEST;
+                        break;
+                    case Orientation.EAST:
+                        this.Orientation = Orientation.SOUTH;
+                        break;
+                    case Orientation.WEST:
+                        this.Orientation = Orientation.NORTH;
+                        break;
+                }
             }
         }
 
